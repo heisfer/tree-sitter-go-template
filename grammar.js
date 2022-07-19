@@ -48,7 +48,13 @@ const
 module.exports = grammar({
   name: 'gotmpl',
   rules: {
-    template: $ => repeat($._block),
+    source_file: $ => repeat($._defintion),
+
+    _defintion: $ => choice(
+        $.template
+    ),
+
+    template: $ => prec(1, repeat1($._block)),
 
     _block: $ => choice(
         $.text,
@@ -362,15 +368,17 @@ module.exports = grammar({
     )),
 
     // http://stackoverflow.com/questions/13014947/regex-to-match-a-c-style-multiline-comment/36328890#36328890
-    comment: $ => token(choice(
-      seq('//', /.*/),
-      seq(
-        '/*',
-        /[^*]*\*+([^/*][^*]*\*+)*/,
-        '/'
-      )
-    )),
-
+    comment: $ => token(
+        choice(
+            seq('//', /.*/),
+            seq(
+              '/*',
+              /[^*]*\*+([^/*][^*]*\*+)*/,
+              '/'
+            )
+        )
+    ),
+        
     _left_delimiter: $ => choice(
         token('{{'),
         token('{{-'),
@@ -381,11 +389,3 @@ module.exports = grammar({
     ),
   }
 });
-
-function sep1(separator, rule) {
-  return seq(rule, repeat(seq(separator, rule)))
-}
-
-function sep(separator, rule) {
-  return optional(sep1(separator, rule))
-}

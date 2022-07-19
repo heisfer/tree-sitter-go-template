@@ -2,159 +2,178 @@
 comment
 ============================================
 {{ /* comment */ }}
+text
 {{ /* multi
 line
 comment */ }}
+text
 ---
-
-(template
-    (comment)
-    (text)
-    (comment))
+(source_file
+    (template
+        (comment))
+    (template
+        (text))
+    (template
+        (comment))
+    (template
+        (text)))
 
 ============================================
 pipeline
 ============================================
 {{ pipeline }}
 ---
-
-(template
-    (function_call (identifier)))
+(source_file
+    (template
+        (function_call (identifier))))
 
 =============================================
 if
 =============================================
 {{if pipeline}} t1 {{end}}
 ---
-(template
-    (if_action
-        (function_call (identifier))
-        (text)))
+(source_file
+    (template
+        (if_action
+            (function_call (identifier))
+            (text))))
 
 =============================================
 if else
 =============================================
 {{if pipeline}} t1 {{ else }} t2 {{ end }}
 ---
-(template
-    (if_action
-        (function_call (identifier))
-        (text)
-        (text)))
+(source_file
+    (template
+        (if_action
+            (function_call (identifier))
+            (text)
+            (text))))
 
 =============================================
 if-else
 =============================================
 {{if pipeline}} t1 {{ else if pipeline }} t2 {{ end }}
 ---
-(template
-    (if_action
-        (function_call (identifier))
-        (text)
-        (function_call (identifier))
-        (text)))
+(source_file
+    (template
+        (if_action
+            (function_call (identifier))
+            (text)
+            (function_call (identifier))
+            (text))))
 
 =============================================
 if-else else
 =============================================
 {{if pipeline}} t1 {{ else if pipeline }} t2 {{ else }} t3 {{ end }}
 ---
-(template
-    (if_action
-        (function_call (identifier))
-        (text)
-        (function_call (identifier))
-        (text)
-        (text)))
+(source_file
+    (template
+        (if_action
+            (function_call (identifier))
+            (text)
+            (function_call (identifier))
+            (text)
+            (text))))
 
 =============================================
 range
 =============================================
 {{range pipeline}} t1 {{ end }}
 ---
-(template
-    (range_action
-        (function_call (identifier))
-        (text)))
+(source_file
+    (template
+        (range_action
+            (function_call (identifier))
+            (text))))
 
 =============================================
 range else
 =============================================
 {{range pipeline}} t1 {{ else }} t2 {{ end }}
 ---
-(template
-    (range_action
-        (function_call (identifier))
-        (text)
-        (text)))
+(source_file
+    (template
+        (range_action
+            (function_call (identifier))
+            (text)
+            (text))))
 
 =============================================
 template
 =============================================
 {{template "name"}}
 ---
-(template
-    (template_action
-        (interpreted_string_literal)))
+(source_file
+    (template
+        (template_action
+            (interpreted_string_literal))))
 
 =============================================
 template with argument
 =============================================
 {{template "name" pipeline}}
 ---
-(template
-    (template_action
-        (interpreted_string_literal)
-        (function_call (identifier))))
+(source_file
+    (template
+        (template_action
+            (interpreted_string_literal)
+            (function_call (identifier)))))
 
 =============================================
 define
 =============================================
 {{define "name"}} t1 {{ end }}
 ---
-(template
-    (define_action
-        (interpreted_string_literal)
-        (text)))
+(source_file
+    (template
+        (define_action
+            (interpreted_string_literal)
+            (text))))
 
 =============================================
 block
 =============================================
 {{block "name"}} T1 {{end}}
 ---
-(template
-    (block_action
-        (interpreted_string_literal)
-        (text)))
+(source_file
+    (template
+        (block_action
+            (interpreted_string_literal)
+            (text))))
 
 =============================================
 block with argument
 =============================================
 {{block "name" pipeline }} T1 {{end}}
 ---
-(template
-    (block_action
-    (interpreted_string_literal)
-    (function_call (identifier))
-    (text)))
+(source_file
+    (template
+        (block_action
+        (interpreted_string_literal)
+        (function_call (identifier))
+        (text))))
 
 =============================================
 with
 =============================================
 {{with pipeline}} T1 {{end}}
 ---
-(template
-    (with_action
-    (function_call (identifier))
-    (text)))
+(source_file
+    (template
+        (with_action
+        (function_call (identifier))
+        (text))))
 
 =============================================
 with else
 =============================================
 {{with pipeline}} T1 {{else}} T0 {{end}}
 ---
-(template
-    (with_action
-    (function_call (identifier))
-    (text)
-    (text)))
+(source_file
+    (template
+        (with_action
+        (function_call (identifier))
+        (text)
+        (text))))

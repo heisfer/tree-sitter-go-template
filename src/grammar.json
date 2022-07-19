@@ -1,11 +1,31 @@
 {
   "name": "gotmpl",
   "rules": {
-    "template": {
+    "source_file": {
       "type": "REPEAT",
       "content": {
         "type": "SYMBOL",
-        "name": "_block"
+        "name": "_defintion"
+      }
+    },
+    "_defintion": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "template"
+        }
+      ]
+    },
+    "template": {
+      "type": "PREC",
+      "value": 1,
+      "content": {
+        "type": "REPEAT1",
+        "content": {
+          "type": "SYMBOL",
+          "name": "_block"
+        }
       }
     },
     "_block": {
