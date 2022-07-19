@@ -8,7 +8,7 @@
     "json",
     "go-template"
   ],
-  "author": "Nikita Galaiko",
+  "author": "Daniel Longeuay",
   "license": "MIT",
   "dependencies": {
     "nan": "^2.14.0"
