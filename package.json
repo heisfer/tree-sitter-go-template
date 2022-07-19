@@ -24,7 +24,7 @@
   },
   "tree-sitter": [
     {
-      "scope": "source.gotexttmpl",
+      "scope": "source.gotmpl",
       "file-types": [
         "gotmpl",
         "gotexttmpl",
