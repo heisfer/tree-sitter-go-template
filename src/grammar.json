@@ -1,5 +1,5 @@
 {
-  "name": "gotmpl",
+  "name": "gohtml",
   "rules": {
     "source_file": {
       "type": "REPEAT",

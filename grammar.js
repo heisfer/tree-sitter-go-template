@@ -46,7 +46,7 @@ const
   imaginaryLiteral = seq(choice(decimalDigits, intLiteral, floatLiteral), 'i')
 
 module.exports = grammar({
-  name: 'gotmpl',
+  name: 'gohtml',
   rules: {
     source_file: $ => repeat($._defintion),
 

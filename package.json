@@ -8,7 +8,7 @@
     "json",
     "go-template"
   ],
-  "author": "Daniel Longeuay",
+  "author": "Heisfer Light",
   "license": "MIT",
   "dependencies": {
     "nan": "^2.14.0"
@@ -24,12 +24,9 @@
   },
   "tree-sitter": [
     {
-      "scope": "source.gotmpl",
+      "scope": "source.gohtml",
       "file-types": [
-        "gotmpl",
-        "gotexttmpl",
-        "gohtmltmpl",
-        "yaml"
+        "gohtml"
       ],
       "content-regex": "{{.+}}"
     }
