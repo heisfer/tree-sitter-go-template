@@ -28,7 +28,7 @@
       "file-types": [
         "gohtml"
       ],
-      "content-regex": "{{.+}}"
+      "content-regex": "{{.+}}",
       "highlights": "queries/highlights.scm",
       "injections": [
         "queries/injections-text.scm"
